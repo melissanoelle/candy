@@ -336,7 +336,9 @@ Candy.View.Pane = (function(self, $) {
       if (pane) {
         // IE8 will fail maybe, because the field isn't there yet.
         try {
-          pane.children('.field')[0].focus();
+          if (!Candy.Util.isMobile.any()) {
+            pane.children('.field')[0].focus();
+          }
         } catch(e) {
           // fail silently
         }
